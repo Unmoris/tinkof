@@ -1,1 +1,2 @@
-rootProject.name = "spring_homework"
+rootProject.name = "tinkof_gradle"
+
