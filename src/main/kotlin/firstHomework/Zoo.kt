@@ -11,6 +11,7 @@ class Zoo(vararg animals: Animal) {
             it.go(distance)
     }
 
+    fun getSatiety(indexAnimal: Int): Double = zooList.get(indexAnimal).satiety
     fun allInfo(): String {
         var allInformation: ArrayList<String> = ArrayList()
         allInformation.add("Information of ZOO")
