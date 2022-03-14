@@ -1,4 +1,5 @@
 import io.mockk.impl.annotations.SpyK
+import io.mockk.mockk
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
