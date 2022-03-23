@@ -1,0 +1,1 @@
+class NoSuchElementException(message:String):RuntimeException(message)

@@ -1,0 +1,1 @@
+class Node<T>(var Next: Node<T>?, var value: T)
