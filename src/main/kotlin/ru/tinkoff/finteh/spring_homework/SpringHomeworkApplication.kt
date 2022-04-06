@@ -1,4 +1,4 @@
-package com.example.spring_homework
+package ru.tinkoff.finteh.spring_homework
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
