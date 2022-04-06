@@ -2,7 +2,7 @@ package ru.tinkoff.finteh.spring_homework.conroller
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import ru.tinkoff.finteh.spring_homework.model.dto.ProductDto
+import ru.tinkoff.finteh.spring_homework.model.DTO.ProductDto
 import ru.tinkoff.finteh.spring_homework.model.Product
 import ru.tinkoff.finteh.spring_homework.service.ProductService
 

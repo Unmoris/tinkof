@@ -3,7 +3,7 @@ package ru.tinkoff.finteh.spring_homework.service
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import ru.tinkoff.finteh.spring_homework.client.Warehouse
-import ru.tinkoff.finteh.spring_homework.model.dto.ProductDto
+import ru.tinkoff.finteh.spring_homework.model.DTO.ProductDto
 import ru.tinkoff.finteh.spring_homework.model.Product
 import ru.tinkoff.finteh.spring_homework.repository.ProductRepository
 import ru.tinkoff.finteh.spring_homework.repository.products

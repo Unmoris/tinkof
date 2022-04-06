@@ -10,8 +10,8 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import ru.tinkoff.finteh.spring_homework.client.Warehouse
-import ru.tinkoff.finteh.spring_homework.model.dto.CountDto
-import ru.tinkoff.finteh.spring_homework.model.dto.ProductDto
+import ru.tinkoff.finteh.spring_homework.model.DTO.CountDto
+import ru.tinkoff.finteh.spring_homework.model.DTO.ProductDto
 import ru.tinkoff.finteh.spring_homework.model.Product
 import ru.tinkoff.finteh.spring_homework.service.ProductService
 
@@ -34,7 +34,7 @@ class ProductTest() {
 
     @Test
     fun addProduct() {
-        val newProduct: Product = Product(1, "IDEA", 321.0, 321432)
+        val newProduct: Product = Product(Long.MAX_VALUE, "IDEA", 321.0, 321432)
 
         Assertions.assertEquals(productService.addProduct(newProduct), HttpStatus.CREATED)
     }

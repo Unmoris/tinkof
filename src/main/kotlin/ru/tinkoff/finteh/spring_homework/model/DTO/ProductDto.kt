@@ -1,4 +1,4 @@
-package ru.tinkoff.finteh.spring_homework.model.dto
+package ru.tinkoff.finteh.spring_homework.model.DTO
 
 import ru.tinkoff.finteh.spring_homework.model.Product
 
