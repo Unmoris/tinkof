@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.tinkoff.finteh.spring_homework.ProductTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-06T17:24:56" hostname="DESKTOP-VI4I4EJ" time="0.905">
+  <properties/>
+  <testcase name="addProduct()" classname="ru.tinkoff.finteh.spring_homework.ProductTest" time="0.905"/>
+  <system-out><![CDATA[20:24:56.559 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Warehouse name=#1
+20:24:57.757 [Test worker] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for CountDto name=child of #1#2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
