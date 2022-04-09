@@ -44,11 +44,11 @@ internal class ServiceCarTest {
         "Веста",
         "Ласточка",
         "Бурундук",
-    )
+    )S
 
     @Test
-    fun lessPriceCount3NameList() {
-        val resultlist = service.lessPriceCount3NameList(listCars, 1000F)
+    fun conditionCarCount3NameList() {
+        val resultlist = service.conditionCarCount3NameList(listCars) { it: Car -> it.price > 5000 }
 
         Assertions.assertEquals(resultlist,nameList)
     }

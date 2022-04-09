@@ -1,5 +1,3 @@
-import java.util.concurrent.locks.Condition
-
 class ServiceCar {
     fun translateNameToEngAndCurrency(cars: List<Car>): List<Car> {
         val seqCar = cars.asSequence()
@@ -13,10 +11,9 @@ class ServiceCar {
         return list.toList()
     }
 
-    fun lessPriceCount3NameList(cars: List<Car>, conditionPrice: Float): List<String> {
+    fun conditionCarCount3NameList(cars: List<Car>, conditionCar: (Car) -> Boolean): List<String> {
         val seqCar = cars.asSequence()
-
-        val list = seqCar.filter { it.price < conditionPrice}.take(3).map { it.name }
+        val list = seqCar.filter { conditionCar(it)}.take(3).map { it.name }
         return list.toList()
 
     }
