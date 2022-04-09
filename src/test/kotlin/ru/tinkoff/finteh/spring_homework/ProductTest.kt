@@ -8,7 +8,6 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.springframework.http.HttpStatus
 import ru.tinkoff.finteh.spring_homework.client.Warehouse
 import ru.tinkoff.finteh.spring_homework.model.DTO.CountDto
 import ru.tinkoff.finteh.spring_homework.model.DTO.ProductDto
@@ -16,7 +15,7 @@ import ru.tinkoff.finteh.spring_homework.model.Product
 import ru.tinkoff.finteh.spring_homework.service.ProductService
 
 
-class ProductTest() {
+class ProductTest {
 
 
     private val warehouse: Warehouse = mockk()
@@ -28,29 +27,29 @@ class ProductTest() {
     }
 
     @AfterEach
-    fun mockkCleare() {
+    fun mockClear() {
         clearAllMocks()
     }
 
     @Test
     fun addProduct() {
-        val newProduct: Product = Product(Long.MAX_VALUE, "IDEA", 321.0, 321432)
+        val newProduct = Product(Long.MAX_VALUE, "IDEA", 321.0, 321432)
 
-        Assertions.assertEquals(productService.addProduct(newProduct), HttpStatus.CREATED)
+        Assertions.assertEquals(productService.addProduct(newProduct), true)
     }
 
     @Test
     fun badAddProduct() {
 
-        val newProduct: Product = Product(1, "IDEA", 321.0, 321432)
+        val newProduct = Product(1, "IDEA", 321.0, 321432)
         productService.addProduct(newProduct)
 
-        Assertions.assertEquals(productService.addProduct(newProduct), HttpStatus.CONFLICT)
+        Assertions.assertEquals(productService.addProduct(newProduct), false)
     }
 
     @Test
     fun getProduct() {
-        val newProduct: Product = Product(5, "IDEA", 321.0, 321432)
+        val newProduct = Product(5, "IDEA", 321.0, 321432)
 
         productService.addProduct(newProduct)
 
@@ -68,7 +67,7 @@ class ProductTest() {
 
         val productExist = ProductDto(id = 1, name = "TELEPHONE", price = 321.0, article = 423123, count = 0)
 
-        val searchProduct = productService.searchProductByName("TELE",1).get(0)
+        val searchProduct = productService.searchProductByName("TELE",1)[0]
 
         Assertions.assertEquals(searchProduct, productExist)
     }
