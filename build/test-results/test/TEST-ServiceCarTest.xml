@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ServiceCarTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-27T11:10:07" hostname="DESKTOP-VI4I4EJ" time="0.025">
+<testsuite name="ServiceCarTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-09T15:00:00" hostname="DESKTOP-VI4I4EJ" time="0.016">
   <properties/>
-  <testcase name="translateNameToEngAndCurrency()" classname="ServiceCarTest" time="0.019"/>
-  <testcase name="groupByBrand()" classname="ServiceCarTest" time="0.002"/>
-  <testcase name="lessPriceCount3NameList()" classname="ServiceCarTest" time="0.003"/>
+  <testcase name="conditionCarCount3NameList()" classname="ServiceCarTest" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
