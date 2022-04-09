@@ -10,15 +10,11 @@ import ru.tinkoff.finteh.spring_homework.repository.products
 
 @Service
 class ProductService(val warehouse: Warehouse) {
-    fun addProduct(product: Product): HttpStatus {
-
+    fun addProduct(product: Product): Boolean {
         return if (!products.contains(product)) {
-            if (products.add(product)) {
-                HttpStatus.CREATED
-            } else
-                HttpStatus.BAD_REQUEST
+            products.add(product)
         } else {
-            HttpStatus.CONFLICT
+            false
         }
     }
 
@@ -34,8 +30,11 @@ class ProductService(val warehouse: Warehouse) {
         }
     }
 
-    fun searchProductByName(name: String): List<ProductDto> {
-        val listProducts = ProductRepository.searchByName(name)
-        return listProducts.map { ProductDto(it, warehouse.getCountProduct(it.article).count) }
+    fun searchProductByName(name: String, page: Int): List<ProductDto> {
+        return ProductRepository.searchByName(name)
+            .map { ProductDto(it, warehouse.getCountProduct(it.article).count) }
+            .filterIndexed { index, _ -> index < page * COUNT_PRODUCT_ON_ONE_PAGE }
     }
 }
+
+const val COUNT_PRODUCT_ON_ONE_PAGE = 3

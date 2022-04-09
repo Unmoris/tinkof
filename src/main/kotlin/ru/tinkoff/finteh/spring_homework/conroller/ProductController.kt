@@ -11,11 +11,17 @@ import ru.tinkoff.finteh.spring_homework.service.ProductService
 class ProductController(private val productService: ProductService) {
 
     @PostMapping("/new")
-    fun addProduct(@RequestBody product: Product): HttpStatus = productService.addProduct(product)
+    fun addProduct(@RequestBody product: Product): HttpStatus {
+        return if (productService.addProduct(product))
+            HttpStatus.CREATED
+        else
+            HttpStatus.CONFLICT
+    }
 
-    @GetMapping
-    fun getProduct(@RequestParam id: Long): ProductDto? = productService.getProduct(id)
+    @GetMapping("/{id}")
+    fun getProduct(@PathVariable id: Long): ProductDto? = productService.getProduct(id)
 
     @GetMapping("/{name}")
-    fun searchProduct(@PathVariable name: String): List<ProductDto> = productService.searchProductByName(name)
+    fun searchProduct(@PathVariable name: String, @RequestParam page: Int): List<ProductDto> =
+        productService.searchProductByName(name, page)
 }

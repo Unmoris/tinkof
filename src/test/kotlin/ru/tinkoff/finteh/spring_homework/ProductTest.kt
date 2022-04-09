@@ -68,7 +68,7 @@ class ProductTest() {
 
         val productExist = ProductDto(id = 1, name = "TELEPHONE", price = 321.0, article = 423123, count = 0)
 
-        val searchProduct = productService.searchProductByName("TELE").get(0)
+        val searchProduct = productService.searchProductByName("TELE",1).get(0)
 
         Assertions.assertEquals(searchProduct, productExist)
     }
@@ -76,7 +76,7 @@ class ProductTest() {
     @Test
     fun badSearchProduct() {
 
-        val searchProduct = productService.searchProductByName("asdadsads")
+        val searchProduct = productService.searchProductByName("asdadsads",1)
 
         Assertions.assertEquals(searchProduct, listOf<ProductDto>())
     }
