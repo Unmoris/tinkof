@@ -1,39 +1,48 @@
 package ru.tinkoff.finteh.spring_homework.service
 
-import org.springframework.http.HttpStatus
+import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
+import org.springframework.web.client.HttpClientErrorException
 import ru.tinkoff.finteh.spring_homework.client.Warehouse
 import ru.tinkoff.finteh.spring_homework.model.DTO.ProductDto
-import ru.tinkoff.finteh.spring_homework.model.Product
+import ru.tinkoff.finteh.spring_homework.model.DTO.request.ProductDtoRequest
 import ru.tinkoff.finteh.spring_homework.repository.ProductRepository
-import ru.tinkoff.finteh.spring_homework.repository.products
+import ru.tinkoff.finteh.spring_homework.repository.ProductSpringRepository
 
 @Service
-class ProductService(val warehouse: Warehouse) {
-    fun addProduct(product: Product): Boolean {
-        return if (!products.contains(product)) {
-            products.add(product)
-        } else {
-            false
-        }
+class ProductService(val warehouse: Warehouse, val productRepo: ProductRepository) {
+
+    fun addProduct(product: ProductDtoRequest) {
+        productRepo.save(
+            ru.tinkoff.finteh.spring_homework.entity.Product(
+                name = product.name,
+                price = product.price,
+                article = product.article
+            )
+        )
     }
 
     fun getProduct(id: Long): ProductDto? {
-        val product = ProductRepository.getById(id)
+        val product = productRepo.getById(id)
         return if (product != null) {
             ProductDto(
-                product,
-                warehouse.getCountProduct(product.article).count
+                id = product.id,
+                name = product.name,
+                price = product.price,
+                article = product.article,
+                count = warehouse.getCountProduct(product.article).count
             )
-        } else {
-            null
-        }
+        } else null
     }
 
     fun searchProductByName(name: String, page: Int): List<ProductDto> {
-        return ProductRepository.searchByName(name)
-            .map { ProductDto(it, warehouse.getCountProduct(it.article).count) }
-            .filterIndexed { index, _ -> index < page * COUNT_PRODUCT_ON_ONE_PAGE }
+        return productRepo.findByNameStartingWith(name, PageRequest.of(page, COUNT_PRODUCT_ON_ONE_PAGE))
+            .map {
+                ProductDto(
+                    it,
+                    warehouse.getCountProduct(it.article).count
+                )
+            }
     }
 }
 

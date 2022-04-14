@@ -9,7 +9,7 @@ import ru.tinkoff.finteh.spring_homework.model.DTO.CountDto
 @Service
 class Warehouse(val restTemplate: RestTemplate, @Value("\${warehouse.address}") private val warehouseAddress: String) {
 
-    fun getCountProduct(article: Int): CountDto =
-        restTemplate.getForObject("$warehouseAddress/{article}", article.toString())
+    fun getCountProduct(article: Int?): CountDto = CountDto(0)
+      //  restTemplate.getForObject("$warehouseAddress/{article}", article.toString())
 }
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet author="misha" id="make" >
+        <createTable tableName="product">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_product"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="article" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="misha" id="fill">
+        <insert tableName="product">
+            <column name="name" value="Telephone"/>
+            <column name="price" valueNumeric="41402"/>
+            <column name="article" valueNumeric="3110"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="Notebook"/>
+            <column name="price" valueNumeric="85024"/>
+            <column name="article" valueNumeric="3111"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="CdCard"/>
+            <column name="price" valueNumeric="1050"/>
+            <column name="article" valueNumeric="3112"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="Playstation5"/>
+            <column name="price" valueNumeric="50045"/>
+            <column name="article" valueNumeric="3113"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="Xbox10"/>
+            <column name="price" valueNumeric="40245"/>
+            <column name="article" valueNumeric="3114"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
