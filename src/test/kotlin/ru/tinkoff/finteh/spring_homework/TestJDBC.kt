@@ -35,9 +35,9 @@ class TestJDBC {
 
     @Test
     fun testSearch() {
-        var result = ProductJDBCRepository(JdbcTemplate(ds)).findByNameStartingWith("Tele", PageRequest.of(0, 3))
+        var result = ProductJDBCRepository(JdbcTemplate(ds)).findByNameStartingWith("%t", PageRequest.of(0, 3))
 
-        Assertions.assertEquals(1, result.size)
+       Assertions.assertEquals(0, result.size)
     }
 
 
