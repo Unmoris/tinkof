@@ -11,4 +11,13 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.2.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.2.0")
+
+}
+tasks {
+    test{
+        useJUnitPlatform()
+    }
 }
