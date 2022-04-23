@@ -5,11 +5,8 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.data.domain.PageRequest
-import org.springframework.jdbc.core.JdbcTemplate
 import ru.tinkoff.finteh.spring_homework.entity.Product
-import ru.tinkoff.finteh.spring_homework.repository.ProductJDBCRepository
 import ru.tinkoff.finteh.spring_homework.repository.ProductSpringRepository
-import javax.sql.DataSource
 
 @DataJpaTest
 class TestJpa {

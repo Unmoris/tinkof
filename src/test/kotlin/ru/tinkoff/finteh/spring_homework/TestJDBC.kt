@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest
 import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Pageable
 import org.springframework.jdbc.core.JdbcTemplate
 import ru.tinkoff.finteh.spring_homework.entity.Product
 import ru.tinkoff.finteh.spring_homework.repository.ProductJDBCRepository
