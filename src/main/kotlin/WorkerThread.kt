@@ -5,21 +5,24 @@ class WorkerThread(
 ) : Thread() {
 
     @Volatile
-    var isStopped = false
+    var isWaited = false
 
+    @Volatile
+    var isStop = false
 
     override fun run() {
         while (true) {
             var task: Runnable?
 
             synchronized(taskQueue) {
-                while (taskQueue.isEmpty() && !isStopped) {
-                    runCatching { (taskQueue as Object).wait() }.onFailure { isStopped = true }
+
+                while (taskQueue.isEmpty() && !isWaited) {
+                    runCatching { (taskQueue as Object).wait() }.onFailure { isWaited = true }
                 }
                 task = taskQueue.poll()
             }
-
             task?.run()
+            if (isStop) break
         }
     }
 }

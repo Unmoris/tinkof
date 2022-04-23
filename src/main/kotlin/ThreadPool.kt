@@ -4,18 +4,20 @@ import java.util.concurrent.LinkedBlockingQueue
 
 class ThreadPool(threadQuantity: Int) : Executor {
 
-    val threadList = LinkedList<WorkerThread>()
+    private val threadList = LinkedList<WorkerThread>()
 
     private val taskQueue = LinkedBlockingQueue<Runnable>()
 
     init {
         if (threadQuantity < 1 || threadQuantity > MAX_THREADS_QUANTITY)
             throw IllegalArgumentException("Недоступное количество потоков!")
+
         repeat(threadQuantity) {
             val thread = WorkerThread(taskQueue)
             threadList.add(thread)
             thread.start()
         }
+
         println("Queue is ready!")
     }
 
@@ -29,7 +31,7 @@ class ThreadPool(threadQuantity: Int) : Executor {
     fun shutdown() {
         threadList.forEach {
             it.interrupt()
-            it.isStopped = true
+            it.isStop = true
         }
     }
 
