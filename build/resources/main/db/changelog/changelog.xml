@@ -7,7 +7,7 @@
 
     <changeSet author="misha" id="make">
         <createTable tableName="product">
-            <column name="id" type="BIGINT"/>
+            <column name="id" type="BIGINT" autoIncrement="true"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="price" type="DOUBLE"/>
             <column name="article" type="INT"/>
