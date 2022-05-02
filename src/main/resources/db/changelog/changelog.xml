@@ -11,6 +11,7 @@
             <column name="name" type="VARCHAR(255)"/>
             <column name="price" type="DOUBLE"/>
             <column name="article" type="INT"/>
+            <column name="count" type="INT"/>
         </createTable>
     </changeSet>
 

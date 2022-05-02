@@ -5,7 +5,6 @@ import javax.persistence.*
 @Table(name = "product")
 @Entity
 class Product(
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -16,4 +15,6 @@ class Product(
     var price: Double? = null,
     @Column(name = "article")
     var article: Int? = null,
+    @Column(name = "count")
+    var count: Int? = null,
 )

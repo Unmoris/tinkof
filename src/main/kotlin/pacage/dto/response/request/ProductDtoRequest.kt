@@ -1,4 +1,4 @@
-package pacage.dto.request
+package pacage.dto.response.request
 
 
 data class ProductDtoRequest (

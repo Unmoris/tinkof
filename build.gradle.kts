@@ -21,6 +21,8 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:1.6.6")
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    implementation("org.springframework.boot:spring-boot-starter-webflux:2.6.7")
+
     testImplementation("io.mockk:mockk:1.12.3")
 
     testImplementation("com.ninja-squad:springmockk:3.1.1")

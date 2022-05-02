@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import pacage.dto.request.ProductDtoRequest
 import pacage.dto.response.MessageDtoResponse
 import pacage.dto.response.ProductDtoResponse
+import pacage.dto.response.request.ProductDtoRequest
 import pacage.service.ProductService
 
 @RestController
