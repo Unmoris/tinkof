@@ -1,0 +1,2 @@
+C:\Users\micla\IdeaProjects\spring_homework\src\test\kotlin\ru\tinkoff\finteh\spring_homework\TestJpa.kt
+C:\Users\micla\IdeaProjects\spring_homework\src\test\kotlin\ru\tinkoff\finteh\spring_homework\TestJDBC.kt
